@@ -1,10 +1,11 @@
 import random
+import matplotlib.pyplot as plt
 
 def random_numbers(count, low=0, high=100):
     return [random.randint(low, high) for _ in range(count)]
 
 values = random_numbers(10)  # 10 čísel v rozsahu 0–100
-print(values)  # např. [42, 7, 91, 15, 63, 8, 57, 73, 2, 100]
+#print(values)  # např. [42, 7, 91, 15, 63, 8, 57, 73, 2, 100]
 
 small = random_numbers(5, low=0, high=20)  # 5 čísel v rozsahu 0–20
 
@@ -22,11 +23,29 @@ def selection_sort(values):
     print(values)
 
 def bubble_sort(values):
-    for i in values:
-
+    print(values)
+    plt.ion()
+    plt.show()
+    for index in range(len(values)):
+        for y in range(0, len(values)-index - 1):
+            index_highlight1 = y
+            index_highlight2 = y + 1
+            colors = ["steelblue"] * len(values)
+            colors[index_highlight1] = "tomato"
+            colors[index_highlight2] = "tomato"
+            plt.clf()
+            plt.bar(range(len(values)), values, color=colors)
+            plt.title("Bubble Sort")
+            plt.pause(0.1)
+            if values[y]> values[y+1]:
+                values[y], values[y+1]=values[y+1], values[y]
+    plt.ioff()
+    plt.show()
+    return values
 
 def main():
     return
 if __name__ == "__main__":
-    values = random_numbers(10)
-    cislicka= selection_sort(values)
+    values = random_numbers(50)
+    cislicka1=bubble_sort(values)
+    print(cislicka1)
