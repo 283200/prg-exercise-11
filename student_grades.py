@@ -71,22 +71,18 @@ def get_sorted(self):
                 kolik1[y], kolik1[y + 1] = kolik1[y + 1], kolik1[y]
     return kolik1
 
-
-
 def main():
     vysledky = StudentsGrades([85, 42, 91, 67, 50, 73, 100, 38, 58])
 
     print(f"Test psalo celkem {vysledky.count()} studentů.")
-    print("-" * 30)
     for i in range(len(vysledky.scores)):
-        score = vysledky.scores[i]
-        grade = vysledky.get_grade(score)
-        print(f"Student {i}: {score} points – {grade}")
+        vysledik = vysledky.scores[i]
+        znamecka = vysledky.get_grade(vysledik)
+        print(f"Student {i}: {vysledik} points – {znamecka}")
         print("-" * 30)
     top_students = vysledky.find(100)
-    print(f"Indexy studentů s plným počtem bodů: {top_students}")
-    print(f"Seřazené výsledky: {vysledky.get_sorted()}")
-    print("Generuji 30 náhodných výsledků...")
+    print(f"Nejlepší studentíci: {top_students}")
+    print(f"Seřazené výsledíkz: {vysledky.get_sorted()}")
     random_datiky = random_numbers(30, 0, 100)
     random_vyslediky = StudentsGrades(random_datiky)
 
