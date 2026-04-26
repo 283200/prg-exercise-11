@@ -55,17 +55,43 @@ def get_grade(self, indexik):
         return "E"
     else:
         return "F"
-results = StudentsGrades([85, 42, 91, 67, 50, 73, 100, 38, 58])
+
+def find(self, bodiky):
+    cojee = []
+    for i in range(len(self.scores)):
+        if self.scores[i] == bodiky:
+            cojee.append(i)
+    return cojee
+
+def get_sorted(self):
+    kolik1 = self.scores.copy()
+    for i in range(len(kolik1)):
+        for y in range(0, len(kolik1) - i - 1):
+            if kolik1[y] > kolik1[y + 1]:
+                kolik1[y], kolik1[y + 1] = kolik1[y + 1], kolik1[y]
+    return kolik1
+
+
+
 def main():
-    kolik=count(results) #kolik=len(results)
-    for index in range(1, kolik):
-        print(f"Student {index}: {results[index]} points - {results.get_grade(index)}")
+    vysledky = StudentsGrades([85, 42, 91, 67, 50, 73, 100, 38, 58])
 
-    studenti100=[]
-    for i, bodiky in enumerate(results, 1):
-        if bodiky==100:
-            studenti100.append(i)
+    print(f"Test psalo celkem {vysledky.count()} studentů.")
+    print("-" * 30)
+    for i in range(len(vysledky.scores)):
+        score = vysledky.scores[i]
+        grade = vysledky.get_grade(score)
+        print(f"Student {i}: {score} points – {grade}")
+        print("-" * 30)
+    top_students = vysledky.find(100)
+    print(f"Indexy studentů s plným počtem bodů: {top_students}")
+    print(f"Seřazené výsledky: {vysledky.get_sorted()}")
+    print("Generuji 30 náhodných výsledků...")
+    random_datiky = random_numbers(30, 0, 100)
+    random_vyslediky = StudentsGrades(random_datiky)
 
-    random_results = StudentsGrades(random_numbers(30, 0, 100))
-    print(random_results.count())
-    print(random_results.get_sorted())
+    print(f"Počet náhodných studentů: {random_vyslediky.count()}")
+    print(f"Seřazené náhodné výsledky: {random_vyslediky.get_sorted()}")
+
+if __name__ == "__main__":
+        main()
