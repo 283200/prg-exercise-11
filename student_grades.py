@@ -73,21 +73,19 @@ def get_sorted(self):
 
 def main():
     vysledky = StudentsGrades([85, 42, 91, 67, 50, 73, 100, 38, 58])
-
     print(f"Test psalo celkem {vysledky.count()} studentů.")
     for i in range(len(vysledky.scores)):
         vysledik = vysledky.scores[i]
         znamecka = vysledky.get_grade(vysledik)
         print(f"Student {i}: {vysledik} points – {znamecka}")
-        print("-" * 30)
-    top_students = vysledky.find(100)
-    print(f"Nejlepší studentíci: {top_students}")
+    top_studentici = vysledky.find(100)
+    print(f"Nejlepší studentíci: {top_studentici}")
     print(f"Seřazené výsledíkz: {vysledky.get_sorted()}")
     random_datiky = random_numbers(30, 0, 100)
     random_vyslediky = StudentsGrades(random_datiky)
 
-    print(f"Počet náhodných studentů: {random_vyslediky.count()}")
-    print(f"Seřazené náhodné výsledky: {random_vyslediky.get_sorted()}")
+    print(f"Počet náhodných studentíků: {random_vyslediky.count()}")
+    print(f"Seřazené náhodné výsledíky: {random_vyslediky.get_sorted()}")
 
 if __name__ == "__main__":
         main()
