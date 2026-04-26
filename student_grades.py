@@ -70,7 +70,6 @@ def get_sorted(self):
             if kolik1[y] > kolik1[y + 1]:
                 kolik1[y], kolik1[y + 1] = kolik1[y + 1], kolik1[y]
     return kolik1
-
 def main():
     vysledky = StudentsGrades([85, 42, 91, 67, 50, 73, 100, 38, 58])
     print(f"Test psalo celkem {vysledky.count()} studentů.")
@@ -83,7 +82,6 @@ def main():
     print(f"Seřazené výsledíkz: {vysledky.get_sorted()}")
     random_datiky = random_numbers(30, 0, 100)
     random_vyslediky = StudentsGrades(random_datiky)
-
     print(f"Počet náhodných studentíků: {random_vyslediky.count()}")
     print(f"Seřazené náhodné výsledíky: {random_vyslediky.get_sorted()}")
 
